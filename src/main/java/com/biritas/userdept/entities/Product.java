@@ -2,14 +2,13 @@ package com.biritas.userdept.entities;
 
 import jakarta.persistence.*;
 
-import java.util.UUID;
 
 @Entity
 @Table(name = "tb_product")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private int quantity;
     private double costPrice;
@@ -19,10 +18,9 @@ public class Product {
     private Category category;
 
     public Product() {
-
     }
 
-    public Product(UUID id, String name, int quantity, double costPrice, double sellPrice, Category category) {
+    public Product(Long id, String name, int quantity, double costPrice, double sellPrice, Category category) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
@@ -31,11 +29,11 @@ public class Product {
         this.category = category;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
